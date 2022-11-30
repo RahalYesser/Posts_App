@@ -6,11 +6,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/exeptions/exceptions.dart';
 import '../models/post_model.dart';
 
+//L'interface 
 abstract class PostLocalDataSource {
   Future<List<PostModel>> getCachedPosts();
   Future<Unit> cachePosts(List<PostModel> postModels);
 }
 
+//core 
 const CACHED_POSTS = "CACHED_POSTS";
 
 class PostLocalDataSourceImpl implements PostLocalDataSource {
@@ -40,3 +42,5 @@ class PostLocalDataSourceImpl implements PostLocalDataSource {
     }
   }
 }
+
+

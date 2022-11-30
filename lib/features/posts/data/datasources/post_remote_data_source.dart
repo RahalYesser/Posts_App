@@ -25,11 +25,17 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource {
       headers: {"Content-Type": "application/json"},
     );
 
+    //doit attendre client.get(.....)
+
     if (response.statusCode == 200) {
       final List decodedJson = json.decode(response.body) as List;
       final List<PostModel> postModels = decodedJson
           .map<PostModel>((jsonPostModel) => PostModel.fromJson(jsonPostModel))
           .toList();
+
+      // for(p in decode(json)){
+      //     postModels.add(postModels.fromJson(p));
+      // }
 
       return postModels;
     } else {
@@ -88,3 +94,5 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource {
     }
   }
 }
+
+//Impl
